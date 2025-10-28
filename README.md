@@ -1,16 +1,47 @@
-# EncurtadorURL
+Entendido. Você quer um README que reflita exatamente o que está pronto agora.
 
+Aqui está a versão "bem menor", focada apenas no que você já implementou (o POST /shorten):
 
-To install dependencies:
+Encurtador de URL (Bun + ElysiaJS + Prisma)
+Solução em andamento para o projeto de encurtador de URL do roadmap.sh.
 
-```bash
+Este é um serviço de encurtamento de URL criado com uma stack moderna de TypeScript para alta performance.
+
+🚀 Tech Stack
+Runtime: Bun
+
+Framework: ElysiaJS
+
+ORM: Prisma
+
+Banco de Dados: PostgreSQL
+
+✨ Features (Atuais)
+POST /shorten: Cria um novo link encurtado.
+
+Utiliza lógica "Find or Create": se a URL já foi encurtada, retorna o link existente.
+
+Gera shortcodes aleatórios e únicos usando nanoid.
+
+🏁 Como Rodar
+Clone o repositório.
+
+Crie um arquivo .env e adicione sua DATABASE_URL do PostgreSQL.
+
+DATABASE_URL="postgresql://USUARIO:SENHA@localhost:5432/NOME_DO_BANCO"
+Instale as dependências:
+
+Bash
+
 bun install
-```
+Rode as migrações do banco:
 
-To run:
+Bash
 
-```bash
-bun run index.ts
-```
+bunx prisma migrate dev
+Inicie o servidor:
 
-This project was created using `bun init` in bun v1.3.1. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Bash
+
+bun run src/server.ts
+(A API estará rodando em http://localhost:3000)
