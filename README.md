@@ -17,6 +17,8 @@ Este é um serviço de encurtamento de URL criado com uma stack moderna de TypeS
     * Utiliza lógica "Find or Create": se a URL já foi encurtada, retorna o link existente.
     * Gera `shortcodes` aleatórios e únicos usando `nanoid`.
 
+    (em breve será adicionada as outras endpoints)
+
 ## 🏁 Como Rodar
 
 1.  Clone o repositório.
