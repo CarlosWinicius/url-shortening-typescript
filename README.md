@@ -1,6 +1,6 @@
 # Encurtador de URL (Bun + ElysiaJS + Prisma)
 
-Solução em andamento para o projeto de encurtador de URL do [roadmap.sh](https://roadmap.sh/projects/url-shortening-service).
+Solução para o projeto de encurtador de URL do [roadmap.sh](https://roadmap.sh/projects/url-shortening-service).
 
 Este é um serviço de encurtamento de URL criado com uma stack moderna de TypeScript para alta performance, focado em simplicidade e velocidade.
 
