@@ -5,6 +5,7 @@ import UrlRepository from "../repositories/UrlRepositories";
 export class UrlService {
     private repository = UrlRepository;
 
+
     async createURL(url: string): Promise<UrlDTO> {
         const existingUrl = await this.repository.FindByUrl(url);
         if (existingUrl) {
@@ -13,7 +14,7 @@ export class UrlService {
 
 
        while (true) {
-        // 4. Gera um código
+       
         const shortcode = nanoid(8);
 
         try {
@@ -27,7 +28,35 @@ export class UrlService {
         }
     }
 }
+    async getURLByShortcode(shortcode: string): Promise<UrlDTO> {
+        const url = await this.repository.FindByShortcode(shortcode);
+        if (!url) {
+            throw new Error('URL não encontrada');
+        }
+        await this.repository.incrementAccessCount(shortcode);
+        return url;
+    }
 
+    async deleteURL(shortcode: string): Promise<void> {
+        await this.repository.DeleteByShortcode(shortcode);
+    }
+
+    async getUrlStatistics(shortcode: string): Promise<UrlDTO> {
+        const url = await this.repository.FindByShortcode(shortcode);
+        if (!url) {
+            throw new Error('URL não encontrada');
+        }
+        return url;
+    }
+
+    async updateURL(shortcode: string, newUrl: string): Promise<UrlDTO> {
+        const url = await this.repository.FindByShortcode(shortcode);
+        if (!url) {
+            throw new Error('URL não encontrada');
+        }
+        const updatedUrl = await this.repository.UpdateURL(shortcode, newUrl);
+        return updatedUrl;
+    }
 }
 
 export default new UrlService();

@@ -7,6 +7,7 @@ class UrlRepository {
   
   
   async CreateURL(url: string, shortcode: string): Promise<UrlDTO> {
+
     return await this.prisma.url.create({
       data: {
         url,
@@ -47,6 +48,17 @@ class UrlRepository {
     return await this.prisma.url.delete({
       where: {
         shortcode,
+      },
+    });
+  }
+
+  async UpdateURL(shortcode: string, newUrl: string): Promise<UrlDTO> {
+    return await this.prisma.url.update({
+      where: {
+        shortcode,
+      },
+      data: {
+        url: newUrl,
       },
     });
   }
