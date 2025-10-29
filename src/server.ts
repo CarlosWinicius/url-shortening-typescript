@@ -11,6 +11,7 @@ import urlService from './services/UrlService';
 
 new Elysia()
     .use(swagger())
+    .get('/', () => 'API de Encurtador de URL funcionando!')
     // 3. Injete a INSTÂNCIA com um nome minúsculo
     .decorate('urlService', urlService)
 
